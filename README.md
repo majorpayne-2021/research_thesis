@@ -1,4 +1,4 @@
-# Detection, Ranking and Visualisation of Money Laundering Networks on the Bitcoin Blockchain
+## Detection, Ranking and Visualisation of Money Laundering Networks on the Bitcoin Blockchain
 
 This repository contains the full implementation of the research thesis:  
 **“Detection, Ranking and Visualisation of Money Laundering Networks on the Bitcoin Blockchain”**  
