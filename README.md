@@ -63,7 +63,7 @@ If using this repository or code in related academic work, please cite:
 
 ## Repository Structure  
 
-
+```text
 rmit_master_thesis/
 │
 ├── model_modules/
@@ -86,7 +86,6 @@ rmit_master_thesis/
 │   └── Illicit Subnetwork Analysis.ipynb
 │
 └── ML_Networks_on_Bitcoin_Blockchain_Payne.pdf
-
 
 ---
 
