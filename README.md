@@ -62,4 +62,33 @@ If using this repository or code in related academic work, please cite:
 ---
 
 ## Repository Structure  
+rmit_master_thesis/
+│
+├── model_modules/
+│ ├── txn_classification_hyper.py
+│ ├── txn_subnetworks.py
+│ └── txn_rank.py
+│
+├── model_notebooks/
+│ ├── Model Step 1 – Elliptic++ Data Preprocessing.ipynb
+│ ├── Model Step 2 – Txn Classification (RF w HP Tuning).ipynb
+│ ├── Model Step 3 – Subnetwork Development.ipynb
+│ ├── Model Step 4 – Ranking Nodes in Subnetwork.ipynb
+│ └── Model Step 5 – Subnetwork Visualisation.ipynb
+│
+├── other_notebooks/
+│ ├── Validation of Bitcoin Addresses.ipynb
+│ ├── Txn Classification – LR (w/o HP Tuning).ipynb
+│ ├── Txn Classification – LR (w HP Tuning).ipynb
+│ ├── Txn Classification – RF (w/o HP Tuning).ipynb
+│ └── Illicit Subnetwork Analysis.ipynb
+│
+└── ML_Networks_on_Bitcoin_Blockchain_Payne.pdf
 
+---
+
+## Author  
+
+**Jennifer Payne**  
+Master of Data Science, RMIT University  
+GitHub: [majorpayne-2021](https://github.com/majorpayne-2021)
