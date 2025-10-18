@@ -8,7 +8,7 @@ The project develops a multi-stage analytical framework for detecting, ranking, 
 
 ---
 
-## Project Overview  
+### Project Overview  
 
 The framework consists of five main modelling stages and several supporting notebooks. Each stage builds upon the outputs of the previous step, forming an end-to-end Anti-Money Laundering (AML) detection pipeline:  
 
@@ -22,7 +22,7 @@ The framework consists of five main modelling stages and several supporting note
 
 ---
 
-## Supplementary Notebooks  
+### Supplementary Notebooks  
 
 | **Notebook** | **Purpose** |
 |---------------|-------------|
@@ -34,7 +34,7 @@ The framework consists of five main modelling stages and several supporting note
 
 ---
 
-## Python Modules  
+### Python Modules  
 
 | **Module** | **Purpose** |
 |-------------|-------------|
@@ -44,7 +44,7 @@ The framework consists of five main modelling stages and several supporting note
 
 ---
 
-## Dataset  
+### Dataset  
 
 This research uses the **Elliptic++ dataset**, which extends the original Elliptic dataset with real Bitcoin wallet addresses and transaction-level detail, enabling address-level validation and enhanced network analysis.  
 
@@ -53,7 +53,7 @@ This research uses the **Elliptic++ dataset**, which extends the original Ellipt
 
 ---
 
-## Citation  
+### Citation  
 
 If using this repository or code in related academic work, please cite:  
 
@@ -61,7 +61,7 @@ If using this repository or code in related academic work, please cite:
 
 ---
 
-## Repository Structure  
+### Repository Structure  
 
 ```text
 rmit_master_thesis/
@@ -89,7 +89,7 @@ rmit_master_thesis/
 ```
 ---
 
-## Author  
+### Author  
 
 **Jennifer Payne**  
 Master of Data Science, RMIT University  
