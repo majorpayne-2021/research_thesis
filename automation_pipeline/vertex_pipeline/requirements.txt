@@ -1,0 +1,16 @@
+google-cloud-bigquery
+google-cloud-bigquery-storage
+google-cloud-storage
+pandas
+pyarrow
+db-dtypes
+numpy
+joblib
+scikit-learn
+pytz
+networkx
+tqdm
+matplotlib
+seaborn
+scipy
+pandas-gbq

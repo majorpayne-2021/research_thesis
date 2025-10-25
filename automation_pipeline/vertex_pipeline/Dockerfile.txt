@@ -1,0 +1,23 @@
+FROM python:3.11-slim
+
+# System libs (no ATLAS)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential gcc g++ git curl \
+    libopenblas-dev liblapack-dev \
+    libfreetype6-dev libpng-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Avoid GUI backends for matplotlib
+ENV MPLBACKEND=Agg
+
+WORKDIR /app
+
+# Copy deps first to leverage layer caching
+COPY requirements.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy code
+COPY components/ ./components/
+
+# Default (component overrides with command/args)
+ENTRYPOINT ["python", "-m", "pip", "--version"]
