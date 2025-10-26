@@ -105,7 +105,7 @@ If using this repository or code in related academic work, please cite:
 
 ---
 
-### Updated Repository Structure  
+### Repository Structure  
 
 ```text
 rmit_master_thesis/
