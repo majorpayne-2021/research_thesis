@@ -44,6 +44,50 @@ The framework consists of five main modelling stages and several supporting note
 
 ---
 
+### Automation Pipeline and Web Dashboard  
+
+This repository also includes an **automation and deployment layer** that operationalises the AML detection framework using **Google Cloud Vertex AI** and a **Streamlit-based investigator dashboard**.  
+
+The automation pipeline enables scheduled model execution, ranking, and visualisation at scale, while the Streamlit viewer provides interactive access to ranked subnetworks and visual summaries.  
+
+#### **Automation Pipeline Components**
+
+| **Folder / File** | **Purpose** |
+|--------------------|-------------|
+| `automation_pipeline/vertex_pipeline/` | Contains the full Vertex AI pipeline definition and container build files. |
+| ├── `pipeline.py` | Defines the Vertex AI pipeline workflow connecting all components (classification, subnetwork, ranking, summary). |
+| ├── `Dockerfile.txt` | Container specification for Vertex AI image builds. |
+| ├── `requirements.txt` | Dependencies for pipeline execution on Vertex AI. |
+| └── `components/` | Component scripts used by the pipeline. |
+| &nbsp;&nbsp;&nbsp;&nbsp;`classify.py` | Runs the Random Forest classification model on BigQuery data. |
+| &nbsp;&nbsp;&nbsp;&nbsp;`subnetwork.py` | Builds illicit subnetworks from classified transactions. |
+| &nbsp;&nbsp;&nbsp;&nbsp;`rank.py` | Applies PageRank and composite ranking metrics to nodes. |
+| &nbsp;&nbsp;&nbsp;&nbsp;`summary.py` | Generates subnetwork-level summaries and metrics for visualisation. |
+| &nbsp;&nbsp;&nbsp;&nbsp;`txn_rank.py`, `txn_subnetworks.py` | Supporting modules for ranking and subnetwork building. |
+
+#### **Machine Learning Artifacts**
+
+| **Folder / File** | **Purpose** |
+|--------------------|-------------|
+| `automation_pipeline/rf_classification_model/` | Stores serialized models and metadata used by Vertex components. |
+| ├── `aml_models_v0.1_rf_model.joblib` | Trained Random Forest classifier for transaction prediction. |
+| ├── `aml_models_v0.1_scaler.joblib` | Scaler used for preprocessing feature inputs. |
+| └── `model_metadata.json` | Model metadata including training schema, version, and feature set. |
+
+#### **Streamlit Web Viewer**
+
+| **Folder / File** | **Purpose** |
+|--------------------|-------------|
+| `automation_pipeline/streamlit_viewer/` | Web-based interface for exploring results. |
+| ├── `app.py` | Main Streamlit application file for the investigator dashboard. |
+| ├── `requirements.txt` | Python dependencies for the app environment. |
+| ├── `Dockerfile.txt` | Container build instructions for deploying the Streamlit app. |
+| └── `txn_subnetworks.py` | Network visualisation utilities used by the dashboard. |
+
+Together, these components automate the **end-to-end AML pipeline** — from model training and subnetwork generation to ranking, summarisation, and web-based investigator dashboard.
+
+---
+
 ### Dataset  
 
 This research uses the **Elliptic++ dataset**, which extends the original Elliptic dataset with real Bitcoin wallet addresses and transaction-level detail, enabling address-level validation and enhanced network analysis.  
@@ -61,7 +105,7 @@ If using this repository or code in related academic work, please cite:
 
 ---
 
-### Repository Structure  
+### Updated Repository Structure  
 
 ```text
 rmit_master_thesis/
@@ -85,7 +129,32 @@ rmit_master_thesis/
 │   ├── Txn Classification – RF (w/o HP Tuning).ipynb
 │   └── Illicit Subnetwork Analysis.ipynb
 │
+├── automation_pipeline/
+│   ├── rf_classification_model/
+│   │   ├── aml_models_v0.1_rf_model.joblib
+│   │   ├── aml_models_v0.1_scaler.joblib
+│   │   └── model_metadata.json
+│   │
+│   ├── streamlit_viewer/
+│   │   ├── app.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile.txt
+│   │   └── txn_subnetworks.py
+│   │
+│   └── vertex_pipeline/
+│       ├── pipeline.py
+│       ├── requirements.txt
+│       ├── Dockerfile.txt
+│       └── components/
+│           ├── classify.py
+│           ├── rank.py
+│           ├── subnetwork.py
+│           ├── summary.py
+│           ├── txn_rank.py
+│           └── txn_subnetworks.py
+│
 └── ML_Networks_on_Bitcoin_Blockchain_Payne.pdf
+
 ```
 ---
 
