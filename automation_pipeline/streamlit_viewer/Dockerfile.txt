@@ -1,0 +1,38 @@
+FROM python:3.11-slim-bookworm
+
+# System dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libopenblas-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    fonts-dejavu-core \
+    curl \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Python dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy your app code
+COPY . /app
+
+# Copy txn_subnetworks.py from vertex_pipeline/components into the image
+COPY txn_subnetworks.py /app/txn_subnetworks.py
+
+# Environment
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    MPLBACKEND=Agg \
+    MPLCONFIGDIR=/tmp/matplotlib \
+    STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
+    PORT=8080
+
+RUN mkdir -p /tmp/matplotlib
+
+EXPOSE 8080
+
+# ✅ Shell expands $PORT correctly here
+CMD sh -c 'streamlit run app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true'
